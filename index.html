@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080909" />
+  <meta name="description" content="Private conversations without a central inbox. nullnet connects cryptographic identities directly over an encrypted peer-to-peer network." />
+  <title>nullnet — The network is the messenger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="announcement" href="#download">Download v0.8.14 <span>↗</span></a>
+  <header class="nav wrap">
+    <a class="brand" href="#top" aria-label="nullnet home"><span class="brand-mark"><i></i><i></i><i></i><i></i></span>nullnet</a>
+    <nav class="main-nav"><a href="#product">How it works</a><a href="#download">Downloads</a><a href="#setup">Setup</a><a href="#security">Security</a><a href="#relay">Relay</a><a href="#troubleshooting">Help</a></nav>
+    <a class="github" href="https://github.com/Meht4b/p2pChat/" target="_blank" rel="noreferrer">Source <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="top">
+      <div class="hero-copy">
+        <div class="eyebrow hero-kicker"><i class="status-mark"></i> PEER-TO-PEER MESSAGING</div>
+        <h1>Private by<br />design.</h1>
+        <p class="hero-lede">Your conversations travel encrypted between peers, without a central inbox. Start with the latest desktop client and connect using a cryptographic identity.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#download">Download nullnet <span>↓</span></a><a class="button button-quiet" href="#setup">Get started <span>↘</span></a></div>
+        <div class="release-stamp"><i class="status-mark"></i><span><small>CURRENT RELEASE</small><b>Desktop alpha · C++</b></span></div>
+      </div>
+
+      <div class="network-diagram" role="img" aria-label="Network diagram: two cryptographic peers connect directly over QUIC and TLS 1.3. A rendezvous server helps peers discover one another, with relay fallback when a direct path is unavailable.">
+        <svg class="diagram-lines" viewBox="0 0 1000 620" preserveAspectRatio="none" aria-hidden="true">
+          <defs><linearGradient id="connection-gradient"><stop offset="0%" stop-color="#a88bff"/><stop offset="48%" stop-color="#64e6f2"/><stop offset="100%" stop-color="#a88bff"/></linearGradient><pattern id="diagram-grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="currentColor" stroke-width="1"/></pattern></defs>
+          <rect width="100%" height="100%" fill="url(#diagram-grid)"/>
+          <path class="discovery-path" d="M 235 260 C 235 390 350 450 445 475"/><path class="discovery-path" d="M 765 260 C 765 390 650 450 555 475"/>
+          <path class="direct-path" d="M 285 218 H 715" stroke="#64e6f2" stroke-width="2" fill="none"/><rect class="route-point" x="412" y="215" width="6" height="6"/><rect class="route-point" x="582" y="215" width="6" height="6"/>
+        </svg>
+        <div class="direct-link-line" aria-hidden="true"><i></i><i></i></div>
+        <article class="diagram-peer peer-a"><span class="peer-label"><i></i> PEER A</span><b>7F2A...91C4</b><small>ED25519 IDENTITY</small></article>
+        <article class="diagram-peer peer-b"><span class="peer-label"><i></i> PEER B</span><b>42E8...A70D</b><small>ED25519 IDENTITY</small></article>
+        <div class="diagram-protocol"><span>♙ &nbsp;QUIC · TLS 1.3</span></div>
+        <article class="rendezvous"><small>RENDEZVOUS</small><b>Discovery only</b></article>
+        <p class="relay-note">Relay fallback when needed</p>
+        <div class="diagram-caption"><span>IDENTITY</span><span>DIRECT TRANSPORT</span><span>DISCOVERY / FALLBACK</span></div>
+      </div>
+    </section>
+
+    <section class="product section wrap" id="product">
+      <div class="section-heading"><div><span class="eyebrow">A DIFFERENT KIND OF MESSENGER</span><h2>Less platform.<br /><span>More protocol.</span></h2></div><p>nullnet removes the central service from the conversation path. What remains is a focused native client, an open protocol, and the shortest viable route between two peers.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card"><span class="eyebrow">01 <i>/</i> DIRECT BY DEFAULT</span><div class="feature-symbol direct-symbol"><span>↗</span><span>↙</span><i></i></div><h3>A conversation with no inbox in the middle.</h3><p>Messages move between participants whenever the network permits a direct route. A rendezvous service helps peers meet—it does not process conversation history.</p></article>
+        <article class="feature-card"><span class="eyebrow">02 <i>/</i> CRYPTOGRAPHIC IDENTITY</span><div class="feature-symbol key-symbol"><span class="key-head"></span><span class="key-shaft"></span><span class="key-tooth"></span></div><h3>Your key is your address.</h3><p>No email. No phone number. No centralized account provider.</p></article>
+        <article class="feature-card"><span class="eyebrow">03 <i>/</i> PRACTICAL CONNECTIVITY</span><div class="feature-symbol signal-symbol"><i></i><i></i><i></i><i></i><i></i></div><h3>Direct when possible. Relayed when necessary.</h3><p>ICE and STUN search for a direct route. TURN keeps the connection moving when restrictive networks get in the way.</p></article>
+      </div>
+    </section>
+
+    <section class="architecture section" id="architecture"><div class="wrap architecture-layout">
+      <div class="architecture-copy"><span class="eyebrow">NATIVE FROM THE TRANSPORT UP</span><h2>Small footprint.<br /><span>Serious stack.</span></h2><p>Built in C++ with deliberate control over every layer that matters: identity, transport, connectivity, encryption, and persistence.</p><a class="text-link" href="https://github.com/Meht4b/p2pChat/" target="_blank" rel="noreferrer">Read the source <span>↗</span></a></div>
+      <div class="stack-list"><div><span>01</span><b>TRANSPORT</b><strong>QUIC over UDP</strong><i>↗</i></div><div><span>02</span><b>ENCRYPTION</b><strong>TLS 1.3</strong><i>↗</i></div><div><span>03</span><b>IDENTITY</b><strong>Ed25519</strong><i>↗</i></div><div><span>04</span><b>CONNECTIVITY</b><strong>ICE / STUN / TURN</strong><i>↗</i></div><div><span>05</span><b>STORAGE</b><strong>SQLite</strong><i>↗</i></div></div>
+    </div></section>
+
+    <section class="setup section wrap" id="setup"><div class="section-heading"><div><span class="eyebrow">GET CONNECTED</span><h2>From first launch<br /><span>to first message.</span></h2></div><p>Install the client, create a local cryptographic identity, then connect directly when possible. A relay can help when the network blocks a direct route.</p></div><div class="steps-grid"><article><span>01 / INSTALL</span><h3>Get the latest client</h3><p>Download the release archive for your operating system and follow the platform-specific instructions included with that build.</p></article><article><span>02 / FIRST LAUNCH</span><h3>Create your identity</h3><p>On first launch, create or load a key identity. Keep a backup somewhere safe: the key is your address and is needed to recover access.</p></article><article><span>03 / CONNECT</span><h3>Choose a route</h3><p>Start a direct conversation using the other peer’s identity. If a direct path cannot be established, configure an available relay and retry.</p></article></div><div class="route-note"><span class="route-note-icon">↔</span><p><b>Direct first. Relay if needed.</b><br />Peer discovery helps the clients meet. Conversation traffic travels directly when possible; relay transport is a fallback for restrictive networks.</p></div></section>
+
+    <section class="security section wrap" id="security"><div class="section-heading security-heading"><div><span class="eyebrow">PRIVATE CONNECTIONS, BY DESIGN</span><h2>Your keys.<br /><span>Your conversations.</span></h2></div><p>Cryptographic identities replace centralized accounts. TLS 1.3 protects peer traffic end to end, including when a relay helps carry packets.</p></div>
+      <div class="security-list"><article class="security-primary"><span class="security-check">⌘</span><div><h3>Your identity belongs to you.</h3><p>Ed25519 keys identify peers without an email address or central account. Share your public identity; keep the private key secret.</p></div><button class="info-button" aria-label="More about identity keys" data-tip="Your public identity can be shared with peers. Never share the matching private key.">i</button></article><article class="security-primary"><span class="security-check">✓</span><div><h3>Only peers can read conversation traffic.</h3><p>TLS 1.3 protects contents between connected peer clients. Relays carry ciphertext, not message plaintext.</p></div><button class="info-button" aria-label="More about encrypted traffic" data-tip="A relay forwards encrypted packets and can still observe network metadata.">i</button></article><article class="security-caveat"><span class="security-check dim">↗</span><div><h3>Network details may still be visible to relays.</h3><p>A TURN operator may observe IP addresses, timing, and traffic volume.</p></div><button class="info-button" aria-label="More about relay metadata" data-tip="Relays help transport packets and can observe network metadata.">i</button></article><article class="security-caveat"><span class="security-check dim">⌂</span><div><h3>Protect the device that holds your keys.</h3><p>Local SQLite history and identity material are not encrypted at rest today.</p></div><button class="info-button" aria-label="More about local storage" data-tip="Protect your device account. Local database encryption is not yet implemented.">i</button></article></div>
+    </section>
+
+    <section class="relay-section section" id="relay"><div class="wrap relay-layout"><div><span class="eyebrow">RELAY &amp; ROOMS</span><h2>Discovery is not<br /><span>the conversation.</span></h2><p class="relay-intro">A rendezvous service helps peers discover each other. A relay can carry traffic when a direct route is unavailable.</p></div><div class="relay-details"><article><span>SERVER ADDRESS</span><b>Use the relay address configured for your build.</b><p>No public relay endpoint is published in the current project information.</p></article><article><span>AVAILABILITY</span><b>Depends on the configured operator.</b><p>There is no uptime commitment stated here. Direct peer connections do not depend on an always-on message inbox.</p></article><article><span>ROOM USAGE</span><b>Use rooms supported by your client.</b><p>Room discovery and membership are client/protocol features; a relay transports packets and should not be treated as message storage.</p></article></div></div></section>
+
+    <section class="troubleshooting section wrap" id="troubleshooting"><div class="section-heading"><div><span class="eyebrow">WHEN SOMETHING GOES WRONG</span><h2>Quick checks.<br /><span>Clear next steps.</span></h2></div><p>These checks address common build, certificate, and connectivity failures. Include the exact error and your platform when asking for help.</p></div><div class="trouble-list"><details><summary>Build fails or a dependency is missing <span>+</span></summary><p>Follow the build instructions in the repository for your operating system, install the listed compiler and dependencies, then start from a clean build directory. Include the first compiler error in an issue if it persists.</p></details><details><summary>Certificate or TLS verification fails <span>+</span></summary><p>Check that the system clock is correct and the certificate matches the peer or relay you intended to reach. Do not disable certificate verification to work around the error; report the certificate message and connection target.</p></details><details><summary>Peers cannot connect directly <span>+</span></summary><p>Confirm both clients are online and using compatible builds. Some NATs and firewalls block direct paths; configure a supported relay and retry. Share the ICE/connection status in a support issue, but remove private keys and sensitive logs.</p></details></div></section>
+
+    <section class="download-section" id="download"><div class="wrap download-inner"><span class="eyebrow"><i class="live-dot"></i> LATEST RELEASE</span><h2>Choose your platform.<br /><span>Start a conversation.</span></h2><p>Download the latest release archive, then use the matching client build inside.</p><div class="download-actions platform-downloads"><a class="download-button" href="https://github.com/Meht4b/p2pChat/releases/latest/download/nullnet.zip"><span class="os-icon">⊞</span><span><strong>Windows client</strong><small>Latest release archive · ZIP</small></span><b>↓</b></a><a class="download-button" href="https://github.com/Meht4b/p2pChat/releases/latest/download/nullnet.zip"><span class="os-icon">⌘</span><span><strong>macOS client</strong><small>Latest release archive · ZIP</small></span><b>↓</b></a><a class="download-button" href="https://github.com/Meht4b/p2pChat/releases/latest/download/nullnet.zip"><span class="os-icon">⌁</span><span><strong>Linux client</strong><small>Latest release archive · ZIP</small></span><b>↓</b></a></div><div class="release-meta">LATEST RELEASE <span>·</span> <a href="https://github.com/Meht4b/p2pChat/releases" target="_blank" rel="noreferrer">RELEASE NOTES &amp; CHECKSUMS</a></div></div></section>
+
+    <section class="support-section section wrap" id="support"><div class="support-card"><div><span class="eyebrow">SOURCE &amp; SUPPORT</span><h2>Built in the open.</h2><p>Read the code, report a problem, or request help through the project repository. GitHub Issues is the published support contact.</p></div><div class="support-actions"><a class="button button-primary" href="https://github.com/Meht4b/p2pChat/" target="_blank" rel="noreferrer">View source <span>↗</span></a><a class="button button-quiet" href="https://github.com/Meht4b/p2pChat/issues" target="_blank" rel="noreferrer">Report an issue <span>↗</span></a></div><small>For useful reports, include your operating system, client version, and a concise reproduction. Never post private keys.</small></div></section>
+  </main>
+  <footer class="footer wrap"><a class="brand" href="#top"><span class="brand-mark"><i></i><i></i><i></i><i></i></span>nullnet</a><nav><a href="#product">How it works</a><a href="#download">Downloads</a><a href="#setup">Setup</a><a href="#architecture">Protocol</a><a href="#security">Security</a><a href="#relay">Relay</a><a href="#troubleshooting">Troubleshooting</a><a href="#support">Source &amp; support</a></nav><span class="copyright">© 2025 nullnet</span><a class="back-top" href="#top">Back to top ↑</a></footer>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
